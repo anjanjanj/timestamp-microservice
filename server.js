@@ -17,12 +17,12 @@ app.get('/:time', function(req, res) {
   }
   else if (moment(inputTime, 'MMMM D, YYYY').isValid()) {
     // natural date
-    times.unix = moment(inputTime, 'MMMM D, YYYY').unix(),
-    times.natural = inputTime
+    times.unix = moment(inputTime, 'MMMM D, YYYY').unix();
+    times.natural = inputTime;
   }
   else {
-    res.status(500).send('Invalid input');
-    return;
+    times.unix = null;
+    times.natural = null;
   }
   
   res.send(times);
